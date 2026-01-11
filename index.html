@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing Guide for Coaching Business Launch</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #C4A484;
+            --color-primary-dark: #8B7355;
+            --color-primary-light: #E8DCD0;
+            --color-secondary: #D4A5A5;
+            --color-secondary-light: #F5E6E6;
+            --color-white: #FFFFFF;
+            --color-off-white: #FAF8F5;
+            --color-text: #3D3D3D;
+            --color-text-light: #6B6B6B;
+            --color-border: #E5E0DB;
+            --color-gold: #B8860B;
+            --color-success: #7CB69D;
+            --font-heading: 'Cormorant Garamond', Georgia, serif;
+            --font-body: 'Lato', system-ui, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-size: 17px;
+            line-height: 1.7;
+            color: var(--color-text);
+            background-color: var(--color-off-white);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-secondary-light) 100%);
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: var(--font-heading);
+            font-size: 3.5rem;
+            font-weight: 500;
+            color: var(--color-primary-dark);
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero .tagline {
+            font-size: 1.25rem;
+            color: var(--color-text-light);
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        /* Navigation */
+        .toc {
+            background: var(--color-white);
+            border-bottom: 1px solid var(--color-border);
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+        .toc-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px 30px;
+        }
+
+        .toc a {
+            color: var(--color-text-light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 400;
+            transition: color 0.2s ease;
+            padding: 5px 0;
+        }
+
+        .toc a:hover {
+            color: var(--color-primary-dark);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        /* Sections */
+        section {
+            margin-bottom: 80px;
+        }
+
+        h2 {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: 500;
+            color: var(--color-primary-dark);
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--color-primary-light);
+        }
+
+        h3 {
+            font-family: var(--font-heading);
+            font-size: 1.75rem;
+            font-weight: 500;
+            color: var(--color-text);
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        h4 {
+            font-family: var(--font-body);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--color-primary-dark);
+            margin-top: 30px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        /* Blockquotes */
+        blockquote {
+            background: var(--color-white);
+            border-left: 4px solid var(--color-secondary);
+            padding: 25px 30px;
+            margin: 30px 0;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+            color: var(--color-text-light);
+        }
+
+        blockquote em {
+            font-style: normal;
+        }
+
+        /* Tables */
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 25px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--color-white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.04);
+        }
+
+        th {
+            background: var(--color-primary-light);
+            color: var(--color-primary-dark);
+            font-weight: 600;
+            text-align: left;
+            padding: 15px 20px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            padding: 15px 20px;
+            border-bottom: 1px solid var(--color-border);
+            vertical-align: top;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background: var(--color-off-white);
+        }
+
+        /* Lists */
+        ul, ol {
+            margin: 20px 0;
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        li::marker {
+            color: var(--color-primary);
+        }
+
+        /* Highlight Boxes */
+        .highlight-box {
+            background: linear-gradient(135deg, var(--color-secondary-light) 0%, var(--color-white) 100%);
+            border: 1px solid var(--color-secondary);
+            border-radius: 12px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .highlight-box h4 {
+            margin-top: 0;
+            color: var(--color-primary-dark);
+        }
+
+        .tip-box {
+            background: var(--color-white);
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            padding: 20px 25px;
+            margin: 25px 0;
+            position: relative;
+        }
+
+        .tip-box::before {
+            content: "💡";
+            position: absolute;
+            left: -12px;
+            top: 15px;
+            background: var(--color-off-white);
+            padding: 5px;
+        }
+
+        /* Checklist */
+        .checklist {
+            background: var(--color-white);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .checklist-item:last-child {
+            border-bottom: none;
+        }
+
+        .checklist-item input[type="checkbox"] {
+            width: 22px;
+            height: 22px;
+            margin-top: 2px;
+            accent-color: var(--color-success);
+            cursor: pointer;
+        }
+
+        .checklist-item label {
+            cursor: pointer;
+            flex: 1;
+        }
+
+        .checklist-item input:checked + label {
+            text-decoration: line-through;
+            color: var(--color-text-light);
+        }
+
+        /* Content Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .card {
+            background: var(--color-white);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.04);
+            border: 1px solid var(--color-border);
+        }
+
+        .card h5 {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            color: var(--color-primary-dark);
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            margin-bottom: 0;
+            color: var(--color-text-light);
+        }
+
+        /* Numbered Steps */
+        .numbered-list {
+            counter-reset: step-counter;
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .numbered-list li {
+            counter-increment: step-counter;
+            position: relative;
+            padding-left: 50px;
+            margin-bottom: 25px;
+        }
+
+        .numbered-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 35px;
+            height: 35px;
+            background: var(--color-primary-light);
+            color: var(--color-primary-dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Code/Template blocks */
+        .template {
+            background: var(--color-text);
+            color: var(--color-off-white);
+            padding: 25px;
+            border-radius: 8px;
+            margin: 25px 0;
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color-primary-dark);
+            color: var(--color-primary-light);
+            text-align: center;
+            padding: 50px 20px;
+            margin-top: 80px;
+        }
+
+        footer p {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-style: italic;
+            margin-bottom: 0;
+            opacity: 0.9;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            h3 {
+                font-size: 1.5rem;
+            }
+
+            .toc-inner {
+                gap: 5px 20px;
+            }
+
+            .toc a {
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .toc {
+                position: relative;
+            }
+
+            section {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <h1>Marketing Guide for Coaching Business Launch</h1>
+        <p class="tagline">A practical playbook for launching a 1:1 coaching practice and gaining your first clients within weeks.</p>
+    </header>
+
+    <nav class="toc">
+        <div class="toc-inner">
+            <a href="#foundations">Foundations</a>
+            <a href="#social-media">Social Media</a>
+            <a href="#lead-generation">Lead Generation</a>
+            <a href="#launch-tactics">Launch Tactics</a>
+            <a href="#content-ideas">Content Ideas</a>
+            <a href="#weekly-schedule">Weekly Schedule</a>
+            <a href="#tools">Tools</a>
+            <a href="#checklist">Checklist</a>
+        </div>
+    </nav>
+
+    <main class="container">
+
+        <!-- FOUNDATIONS -->
+        <section id="foundations">
+            <h2>Foundations First</h2>
+            <p>Before any marketing, get clear on these three essentials. Your messaging must be solid before you amplify it.</p>
+
+            <h3>1. Who You Help</h3>
+            <p>Be specific. The narrower your focus, the easier it is to attract the right people and stand out in a crowded market.</p>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Too Broad</th>
+                            <th>Better</th>
+                            <th>Best</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Anyone who wants coaching</td>
+                            <td>Women feeling stuck</td>
+                            <td>Ambitious women in their 30s navigating career transitions</td>
+                        </tr>
+                        <tr>
+                            <td>People who want to grow</td>
+                            <td>Professionals seeking balance</td>
+                            <td>Tech professionals burning out and questioning their path</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>2. The Transformation You Provide</h3>
+            <p>Describe the before and after state your clients experience:</p>
+
+            <blockquote>
+                "My clients come to me feeling overwhelmed and disconnected from their purpose. They leave with clarity, confidence, and a concrete path forward."
+            </blockquote>
+
+            <h3>3. Why You</h3>
+            <p>What's your unique angle? This could be:</p>
+            <ul>
+                <li>Your personal story and what you've overcome</li>
+                <li>Your specific methodology or approach</li>
+                <li>Your background and how it informs your coaching</li>
+                <li>The energy and presence you bring</li>
+            </ul>
+        </section>
+
+        <!-- SOCIAL MEDIA -->
+        <section id="social-media">
+            <h2>Social Media Strategy</h2>
+
+            <h3>Platform Priority</h3>
+            <p>For coaches launching in 2024-2025:</p>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Platform</th>
+                            <th>Priority</th>
+                            <th>Best For</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Instagram</strong></td>
+                            <td>Primary</td>
+                            <td>Visual storytelling, building community, Reels discovery</td>
+                        </tr>
+                        <tr>
+                            <td><strong>LinkedIn</strong></td>
+                            <td>Secondary</td>
+                            <td>Professional clients, thought leadership, less saturated</td>
+                        </tr>
+                        <tr>
+                            <td><strong>TikTok</strong></td>
+                            <td>Optional</td>
+                            <td>Younger audience, viral potential, requires more volume</td>
+                        </tr>
+                        <tr>
+                            <td><strong>YouTube</strong></td>
+                            <td>Long-term</td>
+                            <td>Deep trust-building, evergreen content, SEO</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="tip-box">
+                <strong>Recommendation:</strong> Start with Instagram only. Add LinkedIn if your ideal clients are professionals. Master one platform before expanding.
+            </div>
+
+            <h3>Instagram Content Pillars</h3>
+            <p>Rotate between these five content types to keep your feed balanced and engaging:</p>
+
+            <div class="card-grid">
+                <div class="card">
+                    <h5>1. Personal Story</h5>
+                    <p>Vulnerable shares about your own journey. These build trust and deep connection with your audience.</p>
+                </div>
+                <div class="card">
+                    <h5>2. Teaching & Value</h5>
+                    <p>Short insights, reframes, or mindset shifts. Establish expertise without being preachy.</p>
+                </div>
+                <div class="card">
+                    <h5>3. Client Transformations</h5>
+                    <p>Share results and journeys with permission. Even anonymized stories work beautifully.</p>
+                </div>
+                <div class="card">
+                    <h5>4. Behind-the-Scenes</h5>
+                    <p>Your workspace, what you're reading, your practices. Humanizes your brand.</p>
+                </div>
+                <div class="card">
+                    <h5>5. Direct Offers</h5>
+                    <p>Clear posts about what you offer and how to work with you. Many coaches under-do this!</p>
+                </div>
+            </div>
+
+            <h3>Posting Rhythm</h3>
+            <h4>Launch Phase (First 8 Weeks)</h4>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Format</th>
+                            <th>Frequency</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Feed Posts</td>
+                            <td>4-5 per week</td>
+                            <td>Mix of carousels, single images, Reels</td>
+                        </tr>
+                        <tr>
+                            <td>Stories</td>
+                            <td>Daily</td>
+                            <td>Even 2-3 frames showing your day, thoughts, questions</td>
+                        </tr>
+                        <tr>
+                            <td>Reels</td>
+                            <td>1-2 per week</td>
+                            <td>Short, authentic—doesn't need polish</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Engagement Strategy</h3>
+            <p>Posting alone isn't enough. Budget time for genuine connection:</p>
+            <ul>
+                <li><strong>15-20 minutes daily</strong> commenting meaningfully on posts from ideal clients and peers</li>
+                <li><strong>Respond to every DM and comment</strong> within 24 hours</li>
+                <li><strong>Use Instagram Stories features:</strong> polls, question boxes, sliders to start conversations</li>
+                <li><strong>Go Live</strong> once a week or bi-weekly—even just 10 minutes builds connection</li>
+            </ul>
+        </section>
+
+        <!-- LEAD GENERATION -->
+        <section id="lead-generation">
+            <h2>Lead Generation</h2>
+
+            <h3>Discovery Calls</h3>
+            <p>The simplest path to first clients: offer free 20-30 minute discovery calls.</p>
+
+            <div class="highlight-box">
+                <h4>The Goal Isn't to "Sell"</h4>
+                <ol class="numbered-list">
+                    <li>Understand their challenges deeply</li>
+                    <li>Give them one insight or reframe they can use immediately</li>
+                    <li>Invite them to continue working together if it's a genuine fit</li>
+                </ol>
+            </div>
+
+            <p>Promote across all channels with a clear call-to-action:</p>
+            <blockquote>
+                "Ready to get unstuck? Book a free 30-minute clarity call. Link in bio."
+            </blockquote>
+
+            <h3>Lead Magnet Ideas</h3>
+            <p>A free resource builds your email list and establishes expertise. Choose one to start:</p>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Example</th>
+                            <th>Effort</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>PDF Guide</td>
+                            <td>"5 Questions to Ask Yourself When You're Feeling Stuck"</td>
+                            <td>Low</td>
+                        </tr>
+                        <tr>
+                            <td>Checklist</td>
+                            <td>"The Weekly Reset: A Self-Care Checklist for Busy Women"</td>
+                            <td>Low</td>
+                        </tr>
+                        <tr>
+                            <td>Quiz</td>
+                            <td>"What's Really Holding You Back?" (use Typeform)</td>
+                            <td>Medium</td>
+                        </tr>
+                        <tr>
+                            <td>Audio</td>
+                            <td>10-minute guided visualization for clarity</td>
+                            <td>Medium</td>
+                        </tr>
+                        <tr>
+                            <td>Video Training</td>
+                            <td>15-minute teaching on your core methodology</td>
+                            <td>Higher</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="tip-box">
+                <strong>Tip:</strong> Start with a simple PDF. You can always create more elaborate resources later once you know what resonates.
+            </div>
+
+            <h3>Email Nurture Sequence</h3>
+            <p>Once someone downloads your lead magnet, send 3-5 automated emails:</p>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Email</th>
+                            <th>Purpose</th>
+                            <th>Timing</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Deliver the freebie + warm introduction</td>
+                            <td>Immediate</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Share your story and why you do this work</td>
+                            <td>Day 2</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Teach something valuable (expand on freebie)</td>
+                            <td>Day 4</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Share a client story or testimonial</td>
+                            <td>Day 6</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Invite to book a discovery call</td>
+                            <td>Day 8</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- LAUNCH TACTICS -->
+        <section id="launch-tactics">
+            <h2>Launch Tactics</h2>
+
+            <h3>Founding Client Offer</h3>
+            <p>For your first 3-5 clients, consider offering:</p>
+            <ul>
+                <li><strong>Reduced rate</strong> in exchange for testimonials and detailed feedback</li>
+                <li><strong>"Founding Client" positioning</strong> — frames it as exclusive, not discounted</li>
+                <li><strong>Extended access</strong> — perhaps an extra session or month of support</li>
+            </ul>
+            <p>This removes the barrier of having no social proof yet while still valuing your work.</p>
+
+            <h3>Personal Outreach</h3>
+            <p>The most effective strategy for first clients is often the least scalable: <strong>direct, personal messages.</strong></p>
+
+            <p>Reach out to people you know or have connected with who might be a fit, or who might know someone:</p>
+
+            <div class="template">
+                "Hey [Name], I'm officially launching my coaching practice focused on helping [specific person] with [specific challenge]. I'm looking for 3 people who resonate with this. Would you or anyone you know be interested in a free call to explore if this could help? No pressure either way—just excited to share what I'm building."
+            </div>
+
+            <p><strong>Aim for:</strong> 5-10 personal outreach messages per week</p>
+
+            <h3>Collaborative Visibility</h3>
+            <p>Borrow other people's audiences:</p>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tactic</th>
+                            <th>How to Start</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Podcast Guesting</strong></td>
+                            <td>Search for podcasts in your niche. Many smaller shows actively need guests. Pitch yourself with a clear topic angle.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Instagram Lives</strong></td>
+                            <td>Partner with other coaches or complementary practitioners (therapists, nutritionists, yoga teachers) for joint Lives</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Newsletter Swaps</strong></td>
+                            <td>Write a guest piece for someone else's email list; they write for yours</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Local Events</strong></td>
+                            <td>Offer to speak at women's groups, professional organizations, wellness centers</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- CONTENT IDEAS -->
+        <section id="content-ideas">
+            <h2>Content Ideas</h2>
+
+            <h3>High-Converting Post Types</h3>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Content Type</th>
+                            <th>Example Hook</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Origin Story</td>
+                            <td>"I became a coach because..."</td>
+                        </tr>
+                        <tr>
+                            <td>Before/After</td>
+                            <td>"My client came to me feeling X. After 3 months..."</td>
+                        </tr>
+                        <tr>
+                            <td>Myth-Busting</td>
+                            <td>"The biggest misconception about [your niche] is..."</td>
+                        </tr>
+                        <tr>
+                            <td>Question Post</td>
+                            <td>"What would change if you finally [desired outcome]?"</td>
+                        </tr>
+                        <tr>
+                            <td>Offer Post</td>
+                            <td>"I have 2 spots open for 1:1 coaching. Here's who it's for..."</td>
+                        </tr>
+                        <tr>
+                            <td>Vulnerable Share</td>
+                            <td>"I almost didn't post this, but..."</td>
+                        </tr>
+                        <tr>
+                            <td>Quick Tip</td>
+                            <td>"One thing I tell every client in our first session..."</td>
+                        </tr>
+                        <tr>
+                            <td>Reframe</td>
+                            <td>"What if the thing you're most afraid of is actually..."</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Reel Ideas</h3>
+            <p>You don't need trending audio or complex editing. These simple formats work:</p>
+            <ol>
+                <li><strong>Talking to camera</strong> — 30 seconds on one key insight</li>
+                <li><strong>Text on screen</strong> — A powerful quote with you in background</li>
+                <li><strong>Day in my life</strong> — Quick clips of your routine, workspace, practices</li>
+                <li><strong>Answer a question</strong> — Respond to a common client question</li>
+                <li><strong>This vs. That</strong> — "What society tells you vs. what's actually true"</li>
+            </ol>
+        </section>
+
+        <!-- WEEKLY SCHEDULE -->
+        <section id="weekly-schedule">
+            <h2>Weekly Schedule</h2>
+
+            <h3>Sample Week (4-5 Hours Total)</h3>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Day</th>
+                            <th>Task</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Monday</strong></td>
+                            <td>Plan content for the week, create 2 posts</td>
+                            <td>60 min</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tuesday</strong></td>
+                            <td>Engage on Instagram, post Stories</td>
+                            <td>30 min</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Wednesday</strong></td>
+                            <td>Create 1 Reel, post to feed</td>
+                            <td>45 min</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Thursday</strong></td>
+                            <td>Engage, personal outreach (5 messages)</td>
+                            <td>30 min</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Friday</strong></td>
+                            <td>Post to feed, engage, Stories</td>
+                            <td>30 min</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Saturday</strong></td>
+                            <td>Batch create content for next week (optional)</td>
+                            <td>60 min</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sunday</strong></td>
+                            <td>Rest or light Stories only</td>
+                            <td>15 min</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- TOOLS -->
+        <section id="tools">
+            <h2>Tools & Resources</h2>
+
+            <h3>Essential Tools</h3>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Purpose</th>
+                            <th>Recommended</th>
+                            <th>Cost</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Scheduling Posts</td>
+                            <td>Meta Business Suite</td>
+                            <td>Free</td>
+                        </tr>
+                        <tr>
+                            <td>Scheduling Posts</td>
+                            <td>Later or Planoly</td>
+                            <td>Free tier available</td>
+                        </tr>
+                        <tr>
+                            <td>Email Marketing</td>
+                            <td>MailerLite</td>
+                            <td>Free up to 1,000 subscribers</td>
+                        </tr>
+                        <tr>
+                            <td>Email Marketing</td>
+                            <td>ConvertKit or Flodesk</td>
+                            <td>~$15-38/month</td>
+                        </tr>
+                        <tr>
+                            <td>Booking Calls</td>
+                            <td>Calendly</td>
+                            <td>Free tier sufficient</td>
+                        </tr>
+                        <tr>
+                            <td>Graphics</td>
+                            <td>Canva</td>
+                            <td>Free tier excellent</td>
+                        </tr>
+                        <tr>
+                            <td>Link in Bio</td>
+                            <td>Your website or Linktree</td>
+                            <td>Free</td>
+                        </tr>
+                        <tr>
+                            <td>Quiz Lead Magnets</td>
+                            <td>Typeform or Interact</td>
+                            <td>Free tier available</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Learning Resources</h3>
+            <h4>Books</h4>
+            <ul>
+                <li><em>Building a StoryBrand</em> by Donald Miller — Clarifying your message</li>
+                <li><em>This Is Marketing</em> by Seth Godin — Mindset shift on what marketing means</li>
+            </ul>
+
+            <h4>Podcasts</h4>
+            <ul>
+                <li><em>The Goal Digger Podcast</em> — Jenna Kutcher, tactical social media advice</li>
+                <li><em>Online Marketing Made Easy</em> — Amy Porterfield, list building and launches</li>
+            </ul>
+        </section>
+
+        <!-- CHECKLIST -->
+        <section id="checklist">
+            <h2>First Client Checklist</h2>
+            <p>Track your launch progress:</p>
+
+            <div class="checklist">
+                <div class="checklist-item">
+                    <input type="checkbox" id="check1">
+                    <label for="check1">Clarified who you help and the transformation you provide</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check2">
+                    <label for="check2">Set up Instagram business account with clear bio</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check3">
+                    <label for="check3">Created one lead magnet (PDF, quiz, or audio)</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check4">
+                    <label for="check4">Set up email marketing with nurture sequence</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check5">
+                    <label for="check5">Created Calendly for discovery calls</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check6">
+                    <label for="check6">Posted first 10 pieces of content</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check7">
+                    <label for="check7">Sent personal outreach to 10+ warm contacts</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check8">
+                    <label for="check8">Responded to all DMs and comments within 24 hours</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check9">
+                    <label for="check9">Booked first discovery call</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check10">
+                    <label for="check10">Signed first client 🎉</label>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>The most important thing isn't perfection—it's consistency and genuine connection.</p>
+    </footer>
+
+</body>
+</html>
