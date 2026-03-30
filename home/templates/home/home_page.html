@@ -234,7 +234,7 @@
         <p class="text-[11px] uppercase tracking-[0.3em] text-teal mb-6 font-body">{{ page.testimonials_heading }}</p>
 
         {# Carousel slides #}
-        <div class="relative min-h-[280px] md:min-h-[240px]">
+        <div class="relative min-h-[420px] md:min-h-[380px]">
             <template x-for="(testimonial, index) in testimonials" :key="index">
                 <div x-show="active === index"
                      x-transition:enter="transition ease-out duration-500"
@@ -243,13 +243,13 @@
                      x-transition:leave="transition ease-in duration-300"
                      x-transition:leave-start="opacity-100 translate-y-0"
                      x-transition:leave-end="opacity-0 -translate-y-4"
-                     class="absolute inset-0">
+                     class="absolute inset-0 flex flex-col items-center">
                     <div class="text-gold text-8xl font-heading leading-none mb-2 opacity-30">&ldquo;</div>
                     <blockquote class="font-heading text-xl md:text-2xl lg:text-[1.7rem] text-navy/80 italic leading-relaxed max-w-3xl mx-auto mb-10"
                                 x-text="testimonial.quote">
                     </blockquote>
-                    <div class="flex items-center justify-center space-x-4">
-                        <div class="w-14 h-14 rounded-full bg-gradient-to-br from-warm-tan/40 to-blush flex items-center justify-center">
+                    <div class="flex items-center justify-center space-x-4 mt-auto mb-16">
+                        <div class="w-14 h-14 rounded-full bg-gradient-to-br from-warm-tan/40 to-blush flex items-center justify-center flex-shrink-0">
                             <span class="font-heading text-lg text-white/80" x-text="testimonial.initial"></span>
                         </div>
                         <div class="text-left">
@@ -262,7 +262,7 @@
         </div>
 
         {# Dot indicators #}
-        <div class="flex items-center justify-center space-x-3 mt-12">
+        <div class="flex items-center justify-center space-x-3">
             <template x-for="(testimonial, index) in testimonials" :key="'dot-'+index">
                 <button @click="goTo(index)"
                         class="w-2.5 h-2.5 rounded-full transition-all duration-300 focus:outline-none"
