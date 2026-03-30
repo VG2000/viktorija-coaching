@@ -79,9 +79,8 @@ prod-migrate:
 	$(COMPOSE_PROD) exec web python manage.py migrate
 
 prod-static:
-	$(COMPOSE_PROD) exec web python manage.py collectstatic --noinput
 	mkdir -p staticfiles
-	$(COMPOSE_PROD) cp web:/app/staticfiles/. ./staticfiles/
+	$(COMPOSE_PROD) cp web:/app/static/. ./staticfiles/
 
 prod-nginx:
 	sudo cp deploy/nginx.conf /etc/nginx/sites-available/viktorija.vincegomez.com
