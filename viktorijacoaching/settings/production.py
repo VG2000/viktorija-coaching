@@ -14,7 +14,7 @@ CSRF_TRUSTED_ORIGINS = env.list("CSRF_TRUSTED_ORIGINS", default=[])
 DATABASES = {
     "default": env.db(
         "DATABASE_URL",
-        default="sqlite:///app/data/db.sqlite3",
+        default="sqlite:////app/data/db.sqlite3",
     ),
 }
 
