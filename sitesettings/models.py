@@ -35,6 +35,11 @@ class SiteSettings(BaseSiteSetting):
     facebook_url = models.URLField(blank=True)
     linkedin_url = models.URLField(blank=True)
 
+    # Booking
+    calendly_url = models.URLField(
+        blank=True, help_text="Calendly booking link (e.g. https://calendly.com/viktorija/discovery-call)"
+    )
+
     # Footer
     footer_text = models.TextField(blank=True)
     copyright_name = models.CharField(
@@ -53,6 +58,10 @@ class SiteSettings(BaseSiteSetting):
         MultiFieldPanel(
             ["instagram_url", "facebook_url", "linkedin_url"],
             heading="Social Media",
+        ),
+        MultiFieldPanel(
+            ["calendly_url"],
+            heading="Booking",
         ),
         MultiFieldPanel(
             ["footer_text", "copyright_name"],

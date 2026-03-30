@@ -147,7 +147,13 @@
                 {{ page.cta_text }}
             </p>
         {% endif %}
-        {% if page.cta_button_link %}
+        {% if settings.sitesettings.SiteSettings.calendly_url %}
+            <a href=""
+               onclick="Calendly.initPopupWidget({url: '{{ settings.sitesettings.SiteSettings.calendly_url }}'}); return false;"
+               class="btn-primary">
+                {{ page.cta_button_text }}
+            </a>
+        {% elif page.cta_button_link %}
             <a href="{% pageurl page.cta_button_link %}" class="btn-primary">
                 {{ page.cta_button_text }}
             </a>

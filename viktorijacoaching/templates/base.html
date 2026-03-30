@@ -31,6 +31,9 @@
         {# TailwindCSS compiled output #}
         <link rel="stylesheet" type="text/css" href="{% static 'css/output.css' %}">
 
+        {# Calendly popup widget #}
+        {% include "includes/calendly_popup.html" %}
+
         {% block extra_css %}{% endblock %}
     </head>
 

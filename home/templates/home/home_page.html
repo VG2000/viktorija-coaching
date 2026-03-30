@@ -26,7 +26,11 @@
                 {{ page.hero_subtitle }}
             </p>
         {% endif %}
-        {% if page.hero_cta_link %}
+        {% if settings.sitesettings.SiteSettings.calendly_url %}
+            <a href="" onclick="Calendly.initPopupWidget({url: '{{ settings.sitesettings.SiteSettings.calendly_url }}'}); return false;" class="btn-primary">
+                {{ page.hero_cta_text }}
+            </a>
+        {% elif page.hero_cta_link %}
             <a href="{% pageurl page.hero_cta_link %}" class="btn-primary">
                 {{ page.hero_cta_text }}
             </a>
@@ -342,6 +346,26 @@
     </div>
 </section>
 
+{# ===== BOOKING SECTION ===== #}
+{% if settings.sitesettings.SiteSettings.calendly_url %}
+<section class="py-24 md:py-36 bg-cream">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+        <p class="text-[11px] uppercase tracking-[0.3em] text-teal mb-4 font-body">Book a Call</p>
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-heading font-semibold text-navy leading-tight mb-6">
+            Schedule Your Free Discovery Call
+        </h2>
+        <p class="text-gray-500 text-base leading-[1.8] mb-10 max-w-xl mx-auto">
+            Ready to take the first step? Choose a time that works for you and let's have a relaxed, no-pressure conversation about where you are and where you want to be.
+        </p>
+        <a href=""
+           onclick="Calendly.initPopupWidget({url: '{{ settings.sitesettings.SiteSettings.calendly_url }}'}); return false;"
+           class="btn-primary text-base">
+            Choose a Time
+        </a>
+    </div>
+</section>
+{% endif %}
+
 {# ===== BOTTOM CTA ===== #}
 <section id="contact" class="py-24 md:py-36 bg-navy text-white text-center">
     <div class="max-w-3xl mx-auto px-6">
@@ -352,7 +376,13 @@
         <p class="text-base text-white/70 leading-[1.8] mb-12 max-w-xl mx-auto">
             {% if page.cta_text %}{{ page.cta_text }}{% else %}Every transformation begins with a decision. Book a complimentary discovery call and let's explore what's possible when you stop settling and start designing the life you were made for.{% endif %}
         </p>
-        {% if page.cta_button_link %}
+        {% if settings.sitesettings.SiteSettings.calendly_url %}
+            <a href=""
+               onclick="Calendly.initPopupWidget({url: '{{ settings.sitesettings.SiteSettings.calendly_url }}'}); return false;"
+               class="btn-primary text-base">
+                {{ page.cta_button_text }}
+            </a>
+        {% elif page.cta_button_link %}
             <a href="{% pageurl page.cta_button_link %}" class="btn-primary text-base">
                 {{ page.cta_button_text }}
             </a>
