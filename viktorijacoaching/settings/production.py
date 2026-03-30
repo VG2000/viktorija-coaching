@@ -12,7 +12,10 @@ ALLOWED_HOSTS = env.list("DJANGO_ALLOWED_HOSTS")
 CSRF_TRUSTED_ORIGINS = env.list("CSRF_TRUSTED_ORIGINS", default=[])
 
 DATABASES = {
-    "default": env.db("DATABASE_URL"),
+    "default": env.db(
+        "DATABASE_URL",
+        default="sqlite:///app/data/db.sqlite3",
+    ),
 }
 
 # WhiteNoise for static files

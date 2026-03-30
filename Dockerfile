@@ -32,13 +32,18 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY --chown=appuser:appuser . .
 COPY --from=tailwind /build/viktorijacoaching/static/css/output.css viktorijacoaching/static/css/output.css
 
+RUN mkdir -p /app/data && chown appuser:appuser /app/data
+
 RUN DJANGO_SECRET_KEY=build-only-not-real \
     DJANGO_ALLOWED_HOSTS=localhost \
     DATABASE_URL=sqlite:///tmp/db.sqlite3 \
     python manage.py collectstatic --noinput
 
+COPY --chown=appuser:appuser entrypoint.sh /app/entrypoint.sh
+RUN chmod +x /app/entrypoint.sh
+
 USER appuser
 
 EXPOSE 8000
 
-CMD ["gunicorn", "viktorijacoaching.wsgi:application", "--bind", "0.0.0.0:8000", "--workers", "3", "--timeout", "120"]
+CMD ["/app/entrypoint.sh"]

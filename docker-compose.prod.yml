@@ -1,0 +1,14 @@
+services:
+  web:
+    build: .
+    env_file: .env
+    ports:
+      - "8010:8000"
+    volumes:
+      - sqlite_data:/app/data
+      - media_data:/app/media
+    restart: unless-stopped
+
+volumes:
+  sqlite_data:
+  media_data:

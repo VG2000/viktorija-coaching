@@ -3,9 +3,10 @@ __pycache__/
 *.pyc
 db.sqlite3
 media/
-static/
+/static/
 staticfiles/
 viktorijacoaching/static/css/output.css
+viktorijacoaching/static/js/
 .env
 *.egg-info/
 .DS_Store
