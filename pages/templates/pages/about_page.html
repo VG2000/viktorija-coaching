@@ -1,0 +1,163 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block body_class %}template-aboutpage{% endblock %}
+
+{% block content %}
+
+{# ===== HERO SECTION ===== #}
+<section class="relative min-h-[70vh] flex items-center overflow-hidden">
+    {% if page.hero_image %}
+        {% image page.hero_image fill-1920x1080 as hero_img %}
+        <img src="{{ hero_img.url }}"
+             alt="{{ page.hero_heading }}"
+             class="absolute inset-0 w-full h-full object-cover">
+    {% endif %}
+    <div class="absolute inset-0 bg-navy/40"></div>
+    <div class="relative z-10 max-w-4xl mx-auto px-6 text-center text-white">
+        <h1 class="text-hero-mobile md:text-hero font-heading font-semibold mb-6">
+            {{ page.hero_heading }}
+        </h1>
+        {% if page.hero_subheading %}
+            <p class="text-lg md:text-xl text-white/90 max-w-2xl mx-auto font-light leading-relaxed">
+                {{ page.hero_subheading }}
+            </p>
+        {% endif %}
+    </div>
+</section>
+
+{# ===== STORY SECTION ===== #}
+{% if page.story %}
+<section class="section-padding bg-white">
+    <div class="max-w-4xl mx-auto">
+        {% for block in page.story %}
+            {% if block.block_type == "heading" %}
+                <h2 class="section-heading mt-12 first:mt-0">{{ block.value }}</h2>
+
+            {% elif block.block_type == "paragraph" %}
+                <div class="richtext-content text-gray-600 text-lg leading-relaxed mb-8">
+                    {{ block.value|richtext }}
+                </div>
+
+            {% elif block.block_type == "image" %}
+                <div class="my-12">
+                    {% image block.value width-900 as story_img %}
+                    <img src="{{ story_img.url }}"
+                         alt=""
+                         class="rounded-lg shadow-lg w-full">
+                </div>
+
+            {% elif block.block_type == "image_text_block" %}
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center my-16">
+                    <div class="{% if block.value.image_position == 'right' %}md:order-2{% endif %}">
+                        {% image block.value.image fill-600x450 as itb_img %}
+                        <img src="{{ itb_img.url }}"
+                             alt=""
+                             class="rounded-lg shadow-lg w-full">
+                    </div>
+                    <div class="{% if block.value.image_position == 'right' %}md:order-1{% endif %}">
+                        <div class="richtext-content text-gray-600 text-lg leading-relaxed">
+                            {{ block.value.text|richtext }}
+                        </div>
+                    </div>
+                </div>
+
+            {% elif block.block_type == "quote" %}
+                <blockquote class="border-l-4 border-gold pl-8 my-12 italic">
+                    <p class="font-heading text-xl md:text-2xl text-navy/70 leading-relaxed">
+                        {{ block.value }}
+                    </p>
+                </blockquote>
+            {% endif %}
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+
+{# ===== CREDENTIALS SECTION ===== #}
+{% if page.credentials %}
+<section class="section-padding bg-cream">
+    <div class="max-w-5xl mx-auto text-center">
+        <h2 class="section-heading">{{ page.credentials_heading }}</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+            {% for block in page.credentials %}
+                <div class="bg-white rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300">
+                    {% if block.value.logo %}
+                        {% image block.value.logo max-80x80 as cred_logo %}
+                        <img src="{{ cred_logo.url }}"
+                             alt="{{ block.value.organization }}"
+                             class="h-16 mx-auto mb-4 object-contain">
+                    {% endif %}
+                    <h3 class="font-heading text-lg font-semibold text-navy mb-2">
+                        {{ block.value.title }}
+                    </h3>
+                    {% if block.value.organization %}
+                        <p class="text-gray-500 text-sm">{{ block.value.organization }}</p>
+                    {% endif %}
+                    {% if block.value.year %}
+                        <p class="text-gold text-sm mt-1">{{ block.value.year }}</p>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+{# ===== PHILOSOPHY SECTION ===== #}
+{% if page.philosophy_text %}
+<section class="section-padding bg-white">
+    <div class="max-w-3xl mx-auto text-center">
+        <h2 class="section-heading">{{ page.philosophy_heading }}</h2>
+        <div class="richtext-content text-gray-600 text-lg leading-relaxed mt-8">
+            {{ page.philosophy_text|richtext }}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+{# ===== PERSONAL FACTS SECTION ===== #}
+{% if page.personal_facts %}
+<section class="section-padding bg-cream">
+    <div class="max-w-4xl mx-auto text-center">
+        <h2 class="section-heading">{{ page.personal_heading }}</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-12">
+            {% for block in page.personal_facts %}
+                <div class="flex items-center space-x-4 bg-white rounded-xl p-6 shadow-sm text-left">
+                    {% if block.value.emoji %}
+                        <span class="text-3xl flex-shrink-0">{{ block.value.emoji }}</span>
+                    {% endif %}
+                    <p class="text-navy text-base">{{ block.value.text }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+{# ===== CTA SECTION ===== #}
+{% if page.cta_heading %}
+<section class="section-padding bg-navy text-white text-center">
+    <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-heading font-semibold mb-6">
+            {{ page.cta_heading }}
+        </h2>
+        {% if page.cta_text %}
+            <p class="text-lg text-white/80 mb-10 leading-relaxed">
+                {{ page.cta_text }}
+            </p>
+        {% endif %}
+        {% if page.cta_button_link %}
+            <a href="{% pageurl page.cta_button_link %}" class="btn-primary">
+                {{ page.cta_button_text }}
+            </a>
+        {% else %}
+            <a href="#contact" class="btn-primary">
+                {{ page.cta_button_text }}
+            </a>
+        {% endif %}
+    </div>
+</section>
+{% endif %}
+
+{% endblock content %}
