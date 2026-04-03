@@ -6,6 +6,7 @@ django.setup()
 from wagtail.models import Page, Site
 from home.models import HomePage, HomePage2
 from pages.models import AboutPage, BookingPage
+from sitesettings.models import SiteSettings
 
 root = Page.objects.get(depth=1)
 
@@ -88,12 +89,24 @@ if not BookingPage.objects.exists():
     booking = BookingPage(
         title='Book', slug='book', show_in_menus=True,
         hero_heading='Book Your Free Discovery Call',
+        calendly_embed_url='https://calendly.com/vincent_gomez/30min',
     )
     hp.add_child(instance=booking)
     booking.save_revision().publish()
     print("Created BookingPage")
 else:
     print("BookingPage exists")
+
+# Set Calendly URL in SiteSettings
+site = Site.objects.first()
+if site:
+    settings, created = SiteSettings.objects.get_or_create(site=site)
+    if not settings.calendly_url:
+        settings.calendly_url = 'https://calendly.com/vincent_gomez/30min'
+        settings.save()
+        print("Set Calendly URL in SiteSettings")
+    else:
+        print("SiteSettings Calendly URL already set")
 
 for p in Page.objects.all():
     print(f"  {p.depth} | {p.title} | {type(p.specific).__name__}")
