@@ -26,12 +26,13 @@ module.exports = {
         blush: "#F5E6E6",
       },
       fontFamily: {
-        heading: ['"Playfair Display"', "Georgia", "serif"],
-        body: ["Lato", '"Open Sans"', "system-ui", "sans-serif"],
+        heading: ['"Bodoni Moda"', "Didot", "Georgia", "serif"],
+        display: ['"Abril Fatface"', '"Bodoni Moda"', "Georgia", "serif"],
+        body: ["Montserrat", "system-ui", "sans-serif"],
       },
       fontSize: {
-        "hero": ["4.625rem", { lineHeight: "1.1", letterSpacing: "-0.02em" }],
-        "hero-mobile": ["2.5rem", { lineHeight: "1.15", letterSpacing: "-0.02em" }],
+        "hero": ["4.625rem", { lineHeight: "1.05", letterSpacing: "-0.02em" }],
+        "hero-mobile": ["2.5rem", { lineHeight: "1.1", letterSpacing: "-0.02em" }],
       },
     },
   },
