@@ -19,7 +19,7 @@
             {{ page.hero_heading }}
         </h1>
         {% if page.hero_subheading %}
-            <p class="text-lg md:text-xl text-white/90 max-w-2xl mx-auto font-light leading-relaxed">
+            <p class="text-lg md:text-xl text-white/90 max-w-2xl mx-auto font-normal leading-relaxed">
                 {{ page.hero_subheading }}
             </p>
         {% endif %}
@@ -35,7 +35,7 @@
                 <h2 class="section-heading mt-12 first:mt-0">{{ block.value }}</h2>
 
             {% elif block.block_type == "paragraph" %}
-                <div class="richtext-content text-gray-600 text-lg leading-relaxed mb-8">
+                <div class="richtext-content text-gray-700 text-lg leading-relaxed mb-8">
                     {{ block.value|richtext }}
                 </div>
 
@@ -56,7 +56,7 @@
                              class="rounded-lg shadow-lg w-full">
                     </div>
                     <div class="{% if block.value.image_position == 'right' %}md:order-1{% endif %}">
-                        <div class="richtext-content text-gray-600 text-lg leading-relaxed">
+                        <div class="richtext-content text-gray-700 text-lg leading-relaxed">
                             {{ block.value.text|richtext }}
                         </div>
                     </div>
@@ -64,7 +64,7 @@
 
             {% elif block.block_type == "quote" %}
                 <blockquote class="border-l-4 border-gold pl-8 my-12 italic">
-                    <p class="font-heading text-xl md:text-2xl text-navy/70 leading-relaxed">
+                    <p class="font-heading text-xl md:text-2xl text-navy/80 leading-relaxed">
                         {{ block.value }}
                     </p>
                 </blockquote>
@@ -109,7 +109,7 @@
 <section class="section-padding bg-white">
     <div class="max-w-3xl mx-auto text-center">
         <h2 class="section-heading">{{ page.philosophy_heading }}</h2>
-        <div class="richtext-content text-gray-600 text-lg leading-relaxed mt-8">
+        <div class="richtext-content text-gray-700 text-lg leading-relaxed mt-8">
             {{ page.philosophy_text|richtext }}
         </div>
     </div>
