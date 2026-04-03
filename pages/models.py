@@ -153,3 +153,73 @@ class AboutPage(Page):
 
     class Meta:
         verbose_name = "About Page"
+
+
+class BookingPage(Page):
+    """Booking page with Calendly integration."""
+
+    max_count = 1
+    parent_page_types = ["home.HomePage"]
+
+    # Hero
+    hero_heading = models.CharField(
+        max_length=255,
+        default="Book Your Free Discovery Call",
+    )
+    hero_image = models.ForeignKey(
+        "wagtailimages.Image",
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name="+",
+    )
+
+    # Intro
+    intro_text = RichTextField(
+        blank=True,
+        help_text="Main description below the hero",
+    )
+    zoom_note = models.CharField(
+        max_length=500,
+        blank=True,
+        default="Calls are held on Zoom so we can meet from anywhere. Can't see a time that works? Email me and we'll find one that does.",
+    )
+
+    # 3-step process
+    step_1 = models.CharField(
+        max_length=255,
+        default="Book a free 45-min virtual discovery call",
+    )
+    step_2 = models.CharField(
+        max_length=255,
+        default="Meet Viktorija, talk through your goals and see if it's a good fit",
+    )
+    step_3 = models.CharField(
+        max_length=255,
+        default="Schedule your first full session with a package that fits your needs",
+    )
+
+    # Calendly embed (inline, not popup)
+    calendly_embed_url = models.URLField(
+        blank=True,
+        help_text="Calendly URL for inline embed (e.g. https://calendly.com/viktorija/discovery-call)",
+    )
+
+    content_panels = Page.content_panels + [
+        MultiFieldPanel(
+            ["hero_heading", "hero_image"],
+            heading="Hero",
+        ),
+        MultiFieldPanel(
+            ["intro_text", "zoom_note"],
+            heading="Introduction",
+        ),
+        MultiFieldPanel(
+            ["step_1", "step_2", "step_3"],
+            heading="How It Works (3 Steps)",
+        ),
+        "calendly_embed_url",
+    ]
+
+    class Meta:
+        verbose_name = "Booking Page"

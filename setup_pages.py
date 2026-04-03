@@ -5,7 +5,7 @@ django.setup()
 
 from wagtail.models import Page, Site
 from home.models import HomePage, HomePage2
-from pages.models import AboutPage
+from pages.models import AboutPage, BookingPage
 
 root = Page.objects.get(depth=1)
 
@@ -83,6 +83,17 @@ if not HomePage2.objects.exists():
     print("Created HomePage2")
 else:
     print("HomePage2 exists")
+
+if not BookingPage.objects.exists():
+    booking = BookingPage(
+        title='Book', slug='book', show_in_menus=True,
+        hero_heading='Book Your Free Discovery Call',
+    )
+    hp.add_child(instance=booking)
+    booking.save_revision().publish()
+    print("Created BookingPage")
+else:
+    print("BookingPage exists")
 
 for p in Page.objects.all():
     print(f"  {p.depth} | {p.title} | {type(p.specific).__name__}")

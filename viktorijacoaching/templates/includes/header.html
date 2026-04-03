@@ -47,6 +47,11 @@
                    :class="scrolled ? 'text-navy/70 hover:text-navy' : 'text-white/80 hover:text-white'">
                     Homepage 2
                 </a>
+                <a href="/book/"
+                   class="nav-link transition-colors duration-300 font-body text-[11px] uppercase tracking-[0.25em] border px-4 py-2"
+                   :class="scrolled ? 'text-navy border-navy hover:bg-navy hover:text-white' : 'text-white border-white hover:bg-white hover:text-navy'">
+                    Book
+                </a>
             </div>
 
             {# Mobile Hamburger #}
@@ -97,6 +102,10 @@
                 <a href="/home-2/" @click="open = false"
                    class="text-navy/70 hover:text-navy font-body text-[11px] uppercase tracking-[0.25em] transition-colors duration-300">
                     Homepage 2
+                </a>
+                <a href="/book/" @click="open = false"
+                   class="text-navy border border-navy font-body text-[11px] uppercase tracking-[0.25em] px-4 py-2 text-center hover:bg-navy hover:text-white transition-colors duration-300">
+                    Book
                 </a>
             </div>
         </div>
