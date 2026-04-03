@@ -1,0 +1,288 @@
+{% extends "base.html" %}
+{% load static wagtailcore_tags wagtailimages_tags %}
+
+{% block body_class %}template-homepage2 bg-cream{% endblock %}
+
+{% block content %}
+
+{# ===== HERO — SPLIT LAYOUT ===== #}
+<section class="min-h-[90vh] flex items-center bg-cream">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 w-full">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            {# Text #}
+            <div class="order-2 lg:order-1 py-12 lg:py-0">
+                <h1 class="text-hero-mobile md:text-[3.5rem] lg:text-hero font-display text-navy leading-[1.05] mb-8">
+                    {{ page.hero_heading }}
+                </h1>
+                {% if page.hero_text %}
+                    <p class="text-gray-700 text-base md:text-lg leading-[1.8] mb-10 max-w-lg">
+                        {{ page.hero_text }}
+                    </p>
+                {% else %}
+                    <p class="text-gray-700 text-base md:text-lg leading-[1.8] mb-10 max-w-lg">
+                        Embody your truth and confidently step into the life you were meant to live. Through personalized coaching, we'll uncover what's holding you back and create a clear path forward.
+                    </p>
+                {% endif %}
+                {% if settings.sitesettings.SiteSettings.calendly_url %}
+                    <a href=""
+                       onclick="Calendly.initPopupWidget({url: '{{ settings.sitesettings.SiteSettings.calendly_url }}'}); return false;"
+                       class="inline-block bg-navy text-white px-10 py-4 text-[11px] uppercase tracking-[0.25em] font-medium hover:bg-navy-light transition-colors duration-300">
+                        {{ page.hero_cta_text }}
+                    </a>
+                {% else %}
+                    <a href="#contact"
+                       class="inline-block bg-navy text-white px-10 py-4 text-[11px] uppercase tracking-[0.25em] font-medium hover:bg-navy-light transition-colors duration-300">
+                        {{ page.hero_cta_text }}
+                    </a>
+                {% endif %}
+            </div>
+            {# Image #}
+            <div class="order-1 lg:order-2">
+                {% if page.hero_image %}
+                    {% image page.hero_image fill-700x850 as hero_img %}
+                    <img src="{{ hero_img.url }}" alt="{{ page.hero_heading }}"
+                         class="w-full h-[50vh] lg:h-[85vh] object-cover">
+                {% else %}
+                    <img src="{% static 'images/Home_hero-min.webp' %}" alt="{{ page.hero_heading }}"
+                         class="w-full h-[50vh] lg:h-[85vh] object-cover">
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ===== SERVICES — THREE COLUMNS ===== #}
+<section class="py-24 md:py-32 bg-white">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+        <h2 class="text-3xl md:text-4xl font-heading font-semibold text-navy text-center mb-16">
+            {{ page.services_heading }}
+        </h2>
+
+        {% if page.services %}
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                {% for block in page.services %}
+                    <div class="group">
+                        {% if block.value.image %}
+                            {% image block.value.image fill-450x300 as svc_img %}
+                            <img src="{{ svc_img.url }}" alt="{{ block.value.title }}"
+                                 class="w-full aspect-[3/2] object-cover mb-6">
+                        {% else %}
+                            <div class="w-full aspect-[3/2] bg-gradient-to-br from-cream via-warm-tan/15 to-blush/30 mb-6 flex items-center justify-center">
+                                <svg class="w-10 h-10 text-warm-tan/30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                            </div>
+                        {% endif %}
+                        <h3 class="font-heading text-xl font-semibold text-navy mb-3">{{ block.value.title }}</h3>
+                        <p class="text-gray-700 text-sm leading-relaxed mb-4">{{ block.value.description }}</p>
+                        <a href="#" class="inline-flex items-center text-navy text-[11px] uppercase tracking-[0.2em] font-medium group-hover:text-teal transition-colors duration-300">
+                            {{ block.value.link_text }}
+                            <svg class="w-3.5 h-3.5 ml-2 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            {# Placeholder services #}
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="group">
+                    <div class="w-full aspect-[3/2] bg-gradient-to-br from-cream via-warm-tan/15 to-blush/30 mb-6 flex items-center justify-center">
+                        <svg class="w-10 h-10 text-warm-tan/30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                    </div>
+                    <h3 class="font-heading text-xl font-semibold text-navy mb-3">1:1 Coaching</h3>
+                    <p class="text-gray-700 text-sm leading-relaxed mb-4">Deep, personalized sessions designed to help you break through barriers, find your voice, and step into your fullest expression.</p>
+                    <a href="#" class="inline-flex items-center text-navy text-[11px] uppercase tracking-[0.2em] font-medium group-hover:text-teal transition-colors duration-300">Learn More <svg class="w-3.5 h-3.5 ml-2 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+                </div>
+                <div class="group">
+                    <div class="w-full aspect-[3/2] bg-gradient-to-br from-blush/20 via-cream to-warm-tan/15 mb-6 flex items-center justify-center">
+                        <svg class="w-10 h-10 text-warm-tan/30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    </div>
+                    <h3 class="font-heading text-xl font-semibold text-navy mb-3">Curated Programs</h3>
+                    <p class="text-gray-700 text-sm leading-relaxed mb-4">Group experiences and structured programs for women ready to grow alongside a community of like-minded souls on the same path.</p>
+                    <a href="#" class="inline-flex items-center text-navy text-[11px] uppercase tracking-[0.2em] font-medium group-hover:text-teal transition-colors duration-300">Learn More <svg class="w-3.5 h-3.5 ml-2 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+                </div>
+                <div class="group">
+                    <div class="w-full aspect-[3/2] bg-gradient-to-br from-warm-tan/15 via-blush/15 to-cream mb-6 flex items-center justify-center">
+                        <svg class="w-10 h-10 text-warm-tan/30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    </div>
+                    <h3 class="font-heading text-xl font-semibold text-navy mb-3">Embodied Living</h3>
+                    <p class="text-gray-700 text-sm leading-relaxed mb-4">An integrated approach to coaching that honours the connection between mind, body, and authentic self-expression in every area of life.</p>
+                    <a href="#" class="inline-flex items-center text-navy text-[11px] uppercase tracking-[0.2em] font-medium group-hover:text-teal transition-colors duration-300">Learn More <svg class="w-3.5 h-3.5 ml-2 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</section>
+
+{# ===== VISION STATEMENT ===== #}
+<section class="py-24 md:py-32 bg-cream">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+        <div class="w-16 h-[1px] bg-gold mx-auto mb-12"></div>
+        {% if page.vision_text %}
+            <div class="font-heading text-xl md:text-2xl lg:text-[1.7rem] text-navy/80 italic leading-relaxed richtext-content">
+                {{ page.vision_text|richtext }}
+            </div>
+        {% else %}
+            <p class="font-heading text-xl md:text-2xl lg:text-[1.7rem] text-navy/80 italic leading-relaxed">
+                I believe that when we learn to listen to ourselves &mdash; truly listen &mdash; we discover a wisdom that has been there all along. My work is about helping you reconnect with that inner knowing, so you can live and lead from a place of deep authenticity.
+            </p>
+        {% endif %}
+        <div class="w-16 h-[1px] bg-gold mx-auto mt-12"></div>
+    </div>
+</section>
+
+{# ===== MEET THE COACH ===== #}
+<section class="py-24 md:py-32 bg-white">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+            {# Text #}
+            <div>
+                <p class="text-[11px] uppercase tracking-[0.3em] text-teal mb-4 font-body font-medium">About</p>
+                <h2 class="text-3xl md:text-4xl font-heading font-semibold text-navy leading-tight mb-8">
+                    {{ page.about_heading }}
+                </h2>
+                {% if page.about_text %}
+                    <div class="text-gray-700 text-base leading-[1.8] richtext-content space-y-4">
+                        {{ page.about_text|richtext }}
+                    </div>
+                {% else %}
+                    <div class="text-gray-700 text-base leading-[1.8] space-y-4">
+                        <p>With over a decade of experience in coaching and a background in psychology, I have dedicated my life to helping women reconnect with their authentic selves.</p>
+                        <p>My approach is rooted in the belief that transformation happens not through force, but through gentle, honest exploration of who we truly are beneath the layers of expectation and conditioning.</p>
+                    </div>
+                {% endif %}
+                <div class="mt-8">
+                    <a href="/about/" class="inline-flex items-center text-navy text-[11px] uppercase tracking-[0.2em] font-medium hover:text-teal transition-colors duration-300 group">
+                        {{ page.about_cta_text }}
+                        <svg class="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </a>
+                </div>
+            </div>
+            {# Image #}
+            <div>
+                {% if page.about_image %}
+                    {% image page.about_image fill-600x750 as about_img %}
+                    <img src="{{ about_img.url }}" alt="{{ page.about_heading }}"
+                         class="w-full object-cover">
+                {% else %}
+                    <div class="aspect-[4/5] bg-gradient-to-br from-cream via-warm-tan/20 to-blush/30 flex items-center justify-center">
+                        <div class="text-center text-warm-tan/50">
+                            <svg class="w-16 h-16 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+                            <p class="text-xs uppercase tracking-widest">Portrait Photo</p>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ===== TESTIMONIALS — ARROW CAROUSEL ===== #}
+<section class="py-24 md:py-32 bg-cream">
+    <div class="max-w-4xl mx-auto px-6 lg:px-12 text-center"
+         x-data="{
+            active: 0,
+            testimonials: [
+                {% if page.testimonials %}
+                    {% for block in page.testimonials %}
+                    {
+                        quote: '{{ block.value.quote|escapejs }}',
+                        name: '{{ block.value.author_name|escapejs }}',
+                        title: '{{ block.value.author_title|default:""|escapejs }}'
+                    }{% if not forloop.last %},{% endif %}
+                    {% endfor %}
+                {% else %}
+                    {
+                        quote: 'Working with Viktorija completely shifted my perspective. She helped me see patterns I had been blind to for years, and gave me practical tools to create real change. I finally feel like I am living on my own terms.',
+                        name: 'Diana V.',
+                        title: 'Therapist & Entrepreneur'
+                    },
+                    {
+                        quote: 'I came to coaching feeling disconnected from myself. Through our work together, I rediscovered my voice and my confidence. Viktorija creates a space where you feel truly seen and supported.',
+                        name: 'Laura K.',
+                        title: 'Creative Director'
+                    },
+                    {
+                        quote: 'Viktorija\u2019s approach is unlike anything I have experienced. She combines deep intuition with practical strategy in a way that makes transformation feel natural and sustainable.',
+                        name: 'Nadia M.',
+                        title: 'Wellness Founder'
+                    }
+                {% endif %}
+            ],
+            total() { return this.testimonials.length; },
+            prev() { this.active = (this.active - 1 + this.total()) % this.total(); },
+            next() { this.active = (this.active + 1) % this.total(); },
+            interval: null,
+            start() {
+                this.interval = setInterval(() => { this.next(); }, 4000);
+            },
+            pause() { clearInterval(this.interval); },
+            resume() { this.pause(); this.start(); }
+         }"
+         x-init="start()">
+
+        <p class="text-[11px] uppercase tracking-[0.3em] text-teal mb-10 font-body font-medium">Testimonials</p>
+
+        <div class="relative">
+            {# Left arrow #}
+            <button @click="prev(); resume();"
+                    class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 w-10 h-10 flex items-center justify-center text-navy/40 hover:text-navy transition-colors z-10"
+                    aria-label="Previous testimonial">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 19l-7-7 7-7"/></svg>
+            </button>
+
+            {# Right arrow #}
+            <button @click="next(); resume();"
+                    class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 w-10 h-10 flex items-center justify-center text-navy/40 hover:text-navy transition-colors z-10"
+                    aria-label="Next testimonial">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5l7 7-7 7"/></svg>
+            </button>
+
+            {# Slides #}
+            <div class="min-h-[220px] md:min-h-[200px] px-8 md:px-16">
+                <template x-for="(testimonial, index) in testimonials" :key="index">
+                    <div x-show="active === index"
+                         x-transition:enter="transition ease-out duration-400"
+                         x-transition:enter-start="opacity-0"
+                         x-transition:enter-end="opacity-100"
+                         x-transition:leave="transition ease-in duration-200"
+                         x-transition:leave-start="opacity-100"
+                         x-transition:leave-end="opacity-0"
+                         class="absolute inset-0 px-8 md:px-16 flex flex-col items-center justify-center">
+                        <blockquote class="font-heading text-lg md:text-xl lg:text-[1.4rem] text-navy/80 italic leading-relaxed max-w-2xl mx-auto mb-8"
+                                    x-text="'&ldquo;' + testimonial.quote + '&rdquo;'">
+                        </blockquote>
+                        <div>
+                            <p class="font-medium text-navy text-sm" x-text="testimonial.name"></p>
+                            <p class="text-xs text-gray-400 mt-0.5" x-text="testimonial.title" x-show="testimonial.title"></p>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ===== BOTTOM CTA ===== #}
+<section id="contact" class="py-24 md:py-32 bg-navy text-white text-center">
+    <div class="max-w-3xl mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-display leading-tight mb-8">
+            {% if page.cta_heading %}{{ page.cta_heading }}{% else %}Ready to Begin?{% endif %}
+        </h2>
+        <p class="text-base text-white/70 leading-[1.8] mb-12 max-w-xl mx-auto">
+            {% if page.cta_text %}{{ page.cta_text }}{% else %}Take the first step toward living with more clarity, confidence, and purpose. Book a complimentary discovery call and let's explore what's possible together.{% endif %}
+        </p>
+        {% if settings.sitesettings.SiteSettings.calendly_url %}
+            <a href=""
+               onclick="Calendly.initPopupWidget({url: '{{ settings.sitesettings.SiteSettings.calendly_url }}'}); return false;"
+               class="inline-block bg-teal text-white px-10 py-4 text-[11px] uppercase tracking-[0.25em] font-medium hover:bg-teal-dark transition-colors duration-300">
+                {{ page.cta_button_text }}
+            </a>
+        {% else %}
+            <a href="#"
+               class="inline-block bg-teal text-white px-10 py-4 text-[11px] uppercase tracking-[0.25em] font-medium hover:bg-teal-dark transition-colors duration-300">
+                {{ page.cta_button_text }}
+            </a>
+        {% endif %}
+    </div>
+</section>
+
+{% endblock content %}

@@ -159,3 +159,119 @@ class HomePage(Page):
 
     class Meta:
         verbose_name = "Home Page"
+
+
+class HomePage2(Page):
+    """Alternative homepage with Amy Thiessen-inspired layout."""
+
+    max_count = 1
+    parent_page_types = ["home.HomePage"]
+
+    # Hero Section (split layout)
+    hero_heading = models.CharField(max_length=255, default="Your Journey Starts Here")
+    hero_text = models.TextField(blank=True)
+    hero_cta_text = models.CharField(max_length=100, default="Book a Discovery Call")
+    hero_image = models.ForeignKey(
+        "wagtailimages.Image",
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name="+",
+    )
+
+    # Services (3 cards)
+    services_heading = models.CharField(max_length=255, default="How I Can Help")
+    services = StreamField(
+        [
+            (
+                "service",
+                blocks.StructBlock(
+                    [
+                        ("image", ImageChooserBlock(required=False)),
+                        ("title", blocks.CharBlock()),
+                        ("description", blocks.TextBlock()),
+                        ("link_text", blocks.CharBlock(default="Learn More")),
+                    ]
+                ),
+            )
+        ],
+        blank=True,
+    )
+
+    # Vision statement
+    vision_text = RichTextField(blank=True)
+
+    # About/Meet section
+    about_heading = models.CharField(max_length=255, default="Meet Viktorija")
+    about_text = RichTextField(blank=True)
+    about_image = models.ForeignKey(
+        "wagtailimages.Image",
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name="+",
+    )
+    about_cta_text = models.CharField(max_length=100, default="Learn More")
+
+    # Testimonials
+    testimonials = StreamField(
+        [
+            (
+                "testimonial",
+                blocks.StructBlock(
+                    [
+                        ("quote", blocks.TextBlock()),
+                        ("author_name", blocks.CharBlock()),
+                        ("author_title", blocks.CharBlock(required=False)),
+                    ]
+                ),
+            )
+        ],
+        blank=True,
+    )
+
+    # Bottom CTA
+    cta_heading = models.CharField(max_length=255, blank=True)
+    cta_text = models.TextField(blank=True)
+    cta_button_text = models.CharField(max_length=100, default="Book a Discovery Call")
+
+    content_panels = Page.content_panels + [
+        MultiFieldPanel(
+            [
+                "hero_heading",
+                "hero_text",
+                "hero_cta_text",
+                "hero_image",
+            ],
+            heading="Hero Section",
+        ),
+        MultiFieldPanel(
+            [
+                "services_heading",
+                "services",
+            ],
+            heading="Services",
+        ),
+        "vision_text",
+        MultiFieldPanel(
+            [
+                "about_heading",
+                "about_text",
+                "about_image",
+                "about_cta_text",
+            ],
+            heading="Meet the Coach",
+        ),
+        "testimonials",
+        MultiFieldPanel(
+            [
+                "cta_heading",
+                "cta_text",
+                "cta_button_text",
+            ],
+            heading="Bottom CTA",
+        ),
+    ]
+
+    class Meta:
+        verbose_name = "Home Page 2"

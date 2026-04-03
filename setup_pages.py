@@ -1,10 +1,10 @@
 import django
 import os
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'viktorijacoaching.settings.production')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', os.environ.get('DJANGO_SETTINGS_MODULE', 'viktorijacoaching.settings.dev'))
 django.setup()
 
 from wagtail.models import Page, Site
-from home.models import HomePage
+from home.models import HomePage, HomePage2
 from pages.models import AboutPage
 
 root = Page.objects.get(depth=1)
@@ -63,6 +63,26 @@ if not AboutPage.objects.exists():
     print("Created AboutPage")
 else:
     print("AboutPage exists")
+
+if not HomePage2.objects.exists():
+    hp2 = HomePage2(
+        title='Homepage 2', slug='home-2', show_in_menus=True,
+        hero_heading='Your Journey Starts Here',
+        hero_text='Embody your truth and confidently step into the life you were meant to live. Through personalized coaching, we will uncover what is holding you back and create a clear path forward.',
+        hero_cta_text='Book a Discovery Call',
+        services_heading='How I Can Help',
+        about_heading='Meet Viktorija',
+        about_text='<p>With over a decade of experience in coaching and a background in psychology, I have dedicated my life to helping women reconnect with their authentic selves.</p><p>My approach is rooted in the belief that transformation happens not through force, but through gentle, honest exploration of who we truly are beneath the layers of expectation and conditioning.</p>',
+        about_cta_text='Learn More',
+        cta_heading='Ready to Begin?',
+        cta_text='Take the first step toward living with more clarity, confidence, and purpose. Book a complimentary discovery call and let us explore what is possible together.',
+        cta_button_text='Book a Discovery Call',
+    )
+    hp.add_child(instance=hp2)
+    hp2.save_revision().publish()
+    print("Created HomePage2")
+else:
+    print("HomePage2 exists")
 
 for p in Page.objects.all():
     print(f"  {p.depth} | {p.title} | {type(p.specific).__name__}")

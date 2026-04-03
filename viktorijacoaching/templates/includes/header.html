@@ -42,6 +42,11 @@
                    :class="scrolled ? 'text-navy/70 hover:text-navy' : 'text-white/80 hover:text-white'">
                     Connect
                 </a>
+                <a href="/home-2/"
+                   class="nav-link transition-colors duration-300 font-body text-[11px] uppercase tracking-[0.25em]"
+                   :class="scrolled ? 'text-navy/70 hover:text-navy' : 'text-white/80 hover:text-white'">
+                    Homepage 2
+                </a>
             </div>
 
             {# Mobile Hamburger #}
@@ -88,6 +93,10 @@
                 <a href="#contact" @click="open = false"
                    class="text-navy/70 hover:text-navy font-body text-[11px] uppercase tracking-[0.25em] transition-colors duration-300">
                     Connect
+                </a>
+                <a href="/home-2/" @click="open = false"
+                   class="text-navy/70 hover:text-navy font-body text-[11px] uppercase tracking-[0.25em] transition-colors duration-300">
+                    Homepage 2
                 </a>
             </div>
         </div>
