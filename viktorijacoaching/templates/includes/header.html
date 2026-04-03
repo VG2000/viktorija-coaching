@@ -1,7 +1,7 @@
 {% load wagtailcore_tags %}
 {% wagtail_site as current_site %}
 
-<header x-data="{ open: false, scrolled: false }"
+<header x-data="{ open: false, scrolled: false, darkNav: document.body.classList.contains('nav-dark') }"
         x-init="window.addEventListener('scroll', () => { scrolled = window.scrollY > 50 })"
         :class="scrolled ? 'bg-white/95 shadow-sm backdrop-blur-sm' : 'bg-transparent'"
         class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
@@ -10,7 +10,7 @@
             {# Logo #}
             <a href="/" class="flex items-center">
                 <span class="font-heading text-2xl lg:text-3xl font-semibold transition-colors duration-300"
-                      :class="scrolled ? 'text-navy' : 'text-white'">
+                      :class="scrolled || darkNav ? 'text-navy' : 'text-white'">
                     Viktorija Coaching
                 </span>
             </a>
@@ -19,37 +19,37 @@
             <div class="hidden lg:flex items-center space-x-10">
                 <a href="/about/"
                    class="nav-link transition-colors duration-300 font-body text-[11px] uppercase tracking-[0.25em]"
-                   :class="scrolled ? 'text-navy/70 hover:text-navy' : 'text-white/80 hover:text-white'">
+                   :class="scrolled || darkNav ? 'text-navy/70 hover:text-navy' : 'text-white/80 hover:text-white'">
                     About
                 </a>
                 <a href="#services"
                    class="nav-link transition-colors duration-300 font-body text-[11px] uppercase tracking-[0.25em]"
-                   :class="scrolled ? 'text-navy/70 hover:text-navy' : 'text-white/80 hover:text-white'">
+                   :class="scrolled || darkNav ? 'text-navy/70 hover:text-navy' : 'text-white/80 hover:text-white'">
                     Work With Me
                 </a>
                 <a href="#"
                    class="nav-link transition-colors duration-300 font-body text-[11px] uppercase tracking-[0.25em]"
-                   :class="scrolled ? 'text-navy/70 hover:text-navy' : 'text-white/80 hover:text-white'">
+                   :class="scrolled || darkNav ? 'text-navy/70 hover:text-navy' : 'text-white/80 hover:text-white'">
                     Freebies
                 </a>
                 <a href="#"
                    class="nav-link transition-colors duration-300 font-body text-[11px] uppercase tracking-[0.25em]"
-                   :class="scrolled ? 'text-navy/70 hover:text-navy' : 'text-white/80 hover:text-white'">
+                   :class="scrolled || darkNav ? 'text-navy/70 hover:text-navy' : 'text-white/80 hover:text-white'">
                     Podcast
                 </a>
                 <a href="#contact"
                    class="nav-link transition-colors duration-300 font-body text-[11px] uppercase tracking-[0.25em]"
-                   :class="scrolled ? 'text-navy/70 hover:text-navy' : 'text-white/80 hover:text-white'">
+                   :class="scrolled || darkNav ? 'text-navy/70 hover:text-navy' : 'text-white/80 hover:text-white'">
                     Connect
                 </a>
                 <a href="/home-2/"
                    class="nav-link transition-colors duration-300 font-body text-[11px] uppercase tracking-[0.25em]"
-                   :class="scrolled ? 'text-navy/70 hover:text-navy' : 'text-white/80 hover:text-white'">
+                   :class="scrolled || darkNav ? 'text-navy/70 hover:text-navy' : 'text-white/80 hover:text-white'">
                     Homepage 2
                 </a>
                 <a href="/book/"
                    class="nav-link transition-colors duration-300 font-body text-[11px] uppercase tracking-[0.25em] border px-4 py-2"
-                   :class="scrolled ? 'text-navy border-navy hover:bg-navy hover:text-white' : 'text-white border-white hover:bg-white hover:text-navy'">
+                   :class="scrolled || darkNav ? 'text-navy border-navy hover:bg-navy hover:text-white' : 'text-white border-white hover:bg-white hover:text-navy'">
                     Book
                 </a>
             </div>
@@ -57,7 +57,7 @@
             {# Mobile Hamburger #}
             <button @click="open = !open"
                     class="lg:hidden focus:outline-none transition-colors duration-300"
-                    :class="scrolled ? 'text-navy' : 'text-white'"
+                    :class="scrolled || darkNav ? 'text-navy' : 'text-white'"
                     aria-label="Toggle menu">
                 <svg x-show="!open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/>
