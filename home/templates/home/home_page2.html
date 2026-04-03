@@ -5,48 +5,44 @@
 
 {% block content %}
 
-{# ===== HERO — SPLIT LAYOUT ===== #}
-<section class="min-h-[90vh] flex items-center bg-cream">
-    <div class="max-w-7xl mx-auto px-6 lg:px-12 w-full">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            {# Text #}
-            <div class="order-2 lg:order-1 py-12 lg:py-0">
-                <h1 class="text-hero-mobile md:text-[3.5rem] lg:text-hero font-display text-navy leading-[1.05] mb-8">
-                    {{ page.hero_heading }}
-                </h1>
-                {% if page.hero_text %}
-                    <p class="text-gray-700 text-base md:text-lg leading-[1.8] mb-10 max-w-lg">
-                        {{ page.hero_text }}
-                    </p>
-                {% else %}
-                    <p class="text-gray-700 text-base md:text-lg leading-[1.8] mb-10 max-w-lg">
-                        Embody your truth and confidently step into the life you were meant to live. Through personalized coaching, we'll uncover what's holding you back and create a clear path forward.
-                    </p>
-                {% endif %}
-                {% if settings.sitesettings.SiteSettings.calendly_url %}
-                    <a href=""
-                       onclick="Calendly.initPopupWidget({url: '{{ settings.sitesettings.SiteSettings.calendly_url }}'}); return false;"
-                       class="inline-block bg-navy text-white px-10 py-4 text-[11px] uppercase tracking-[0.25em] font-medium hover:bg-navy-light transition-colors duration-300">
-                        {{ page.hero_cta_text }}
-                    </a>
-                {% else %}
-                    <a href="#contact"
-                       class="inline-block bg-navy text-white px-10 py-4 text-[11px] uppercase tracking-[0.25em] font-medium hover:bg-navy-light transition-colors duration-300">
-                        {{ page.hero_cta_text }}
-                    </a>
-                {% endif %}
-            </div>
-            {# Image #}
-            <div class="order-1 lg:order-2">
-                {% if page.hero_image %}
-                    {% image page.hero_image fill-700x850 as hero_img %}
-                    <img src="{{ hero_img.url }}" alt="{{ page.hero_heading }}"
-                         class="w-full h-[50vh] lg:h-[85vh] object-cover">
-                {% else %}
-                    <img src="{% static 'images/Home_hero-min.webp' %}" alt="{{ page.hero_heading }}"
-                         class="w-full h-[50vh] lg:h-[85vh] object-cover">
-                {% endif %}
-            </div>
+{# ===== HERO — FULL-WIDTH IMAGE WITH TEXT OVERLAY ===== #}
+<section class="relative min-h-screen flex items-center">
+    {# Full-width background image #}
+    {% if page.hero_image %}
+        {% image page.hero_image fill-1920x1080 as hero_img %}
+        <img src="{{ hero_img.url }}" alt="" class="absolute inset-0 w-full h-full object-cover">
+    {% else %}
+        <img src="{% static 'images/Home_hero-min.webp' %}" alt="" class="absolute inset-0 w-full h-full object-cover">
+    {% endif %}
+    {# Light overlay on left side for text readability #}
+    <div class="absolute inset-0 bg-gradient-to-r from-white/80 via-white/50 to-transparent"></div>
+    {# Text content #}
+    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 w-full">
+        <div class="max-w-xl">
+            <h1 class="text-hero-mobile md:text-[3.5rem] lg:text-hero font-display text-navy leading-[1.05] mb-8">
+                {{ page.hero_heading }}
+            </h1>
+            {% if page.hero_text %}
+                <p class="text-gray-700 text-base md:text-lg leading-[1.8] mb-10">
+                    {{ page.hero_text }}
+                </p>
+            {% else %}
+                <p class="text-gray-700 text-base md:text-lg leading-[1.8] mb-10">
+                    Embody your truth and confidently step into the life you were meant to live. Through personalized coaching, we'll uncover what's holding you back and create a clear path forward.
+                </p>
+            {% endif %}
+            {% if settings.sitesettings.SiteSettings.calendly_url %}
+                <a href=""
+                   onclick="Calendly.initPopupWidget({url: '{{ settings.sitesettings.SiteSettings.calendly_url }}'}); return false;"
+                   class="inline-block bg-navy text-white px-10 py-4 text-[11px] uppercase tracking-[0.25em] font-medium hover:bg-navy-light transition-colors duration-300">
+                    {{ page.hero_cta_text }}
+                </a>
+            {% else %}
+                <a href="#contact"
+                   class="inline-block bg-navy text-white px-10 py-4 text-[11px] uppercase tracking-[0.25em] font-medium hover:bg-navy-light transition-colors duration-300">
+                    {{ page.hero_cta_text }}
+                </a>
+            {% endif %}
         </div>
     </div>
 </section>
