@@ -28,7 +28,7 @@ module.exports = {
       fontFamily: {
         heading: ['"Bodoni Moda"', "Didot", "Georgia", "serif"],
         display: ['"Abril Fatface"', '"Bodoni Moda"', "Georgia", "serif"],
-        body: ["Montserrat", "system-ui", "sans-serif"],
+        body: ["Poppins", "system-ui", "sans-serif"],
       },
       fontSize: {
         "hero": ["4.625rem", { lineHeight: "1.05", letterSpacing: "-0.02em" }],
