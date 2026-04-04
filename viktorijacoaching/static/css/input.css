@@ -9,6 +9,7 @@
 
     h1 {
         @apply font-display;
+        -webkit-text-stroke: 0.4px currentColor;
     }
 
     h2, h3, h4 {
