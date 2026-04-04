@@ -1,4 +1,17 @@
 /** @type {import('tailwindcss').Config} */
+
+/*
+ * FONT THEME — Change fonts in ONE place
+ * =======================================
+ * 1. Update the font names below
+ * 2. Update the Google Fonts <link> in viktorijacoaching/templates/base.html
+ * 3. Run: npx tailwindcss@3 -i ... -o ...
+ *
+ * Current theme:
+ *   Headings (h1-h4, logo): Bodoni Moda (high-contrast serif)
+ *   Body (paragraphs, nav, buttons): Poppins (geometric sans-serif)
+ */
+
 module.exports = {
   content: [
     "./viktorijacoaching/templates/**/*.html",
@@ -27,7 +40,6 @@ module.exports = {
       },
       fontFamily: {
         heading: ['"Bodoni Moda"', "Didot", "Georgia", "serif"],
-        display: ['"Abril Fatface"', '"Bodoni Moda"', "Georgia", "serif"],
         body: ["Poppins", "system-ui", "sans-serif"],
       },
       fontSize: {

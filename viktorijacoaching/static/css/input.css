@@ -7,12 +7,7 @@
         scroll-behavior: smooth;
     }
 
-    h1 {
-        @apply font-display;
-        -webkit-text-stroke: 0.4px currentColor;
-    }
-
-    h2, h3, h4 {
+    h1, h2, h3, h4 {
         @apply font-heading;
         font-variation-settings: 'opsz' 16;
         -webkit-text-stroke: 0.3px currentColor;
